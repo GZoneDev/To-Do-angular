@@ -1,0 +1,36 @@
+<nav class="col-md-2 d-none d-md-block sidebar" id="sidebar">
+    <div class="sidebar-sticky">
+        <h5 class="sidebar-title">{{ title }}</h5>        
+        
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="{{ searchPlaceholder }}" [(ngModel)]="searchCategoryName">
+            <div class="input-group-append">
+                <a class="btn btn-success btn-outline-secondary " type="button">
+                    <i class="material-icons white-icon" (click)="search()">search</i>
+                </a>
+            </div>
+        </div>
+
+        <hr/>
+
+        <input class="form-control mb-2"  type="text" [(ngModel)]="newCategoryName" placeholder="{{ addCategoryPlaceholderName }}"/>
+        <button class="btn btn-primary" (click)="createCategory()">{{ addCategoryButtonName }}</button>
+
+        <ul class="nav flex-column">
+            <li class="nav-item" *ngFor="let category of categories; let i = index">
+                <div *ngIf="editIndex !== i; else editTemplate">
+                    <button class="nav-link active full-width-btn" (click)="setTargetCategory(i)" (dblclick)="startEdit(i)">{{ category.name }}</button>
+                </div>
+                <ng-template #editTemplate>
+                    <input class="form-control mb-2" type="text" [(ngModel)]="editCategoryName"/>
+                    <button class="btn btn-warning mr-2"  (click)="saveEdit()">{{ saveEditCategoryButtonName }}</button>
+                    <button class="btn btn-danger" (click)="deleteCategory(i)">{{ deleteEditCategoryButtonName }}</button>
+                    <button  class="btn btn-primary"  (click)="cancelEdit()">{{ cancelEditCategoryButtonName }}</button>
+                </ng-template>
+            </li>
+        </ul>
+
+        <button class="btn btn-primary" (click)="loadCategories()">{{ loadNextCategoryButtonName }}</button>
+
+    </div>
+</nav>

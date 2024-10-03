@@ -1,0 +1,21 @@
+.pagination {
+    border: 1px solid #007bff;
+    border-radius: 0.5rem;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.text-center {
+    font-weight: bold;
+    font-size: 1.1rem;
+}

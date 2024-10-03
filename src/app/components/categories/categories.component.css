@@ -1,0 +1,12 @@
+.sidebar {
+    height: 85vh;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+}
+
+.sidebar-sticky {
+    max-height: 100%;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+}

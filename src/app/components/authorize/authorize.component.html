@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="col-lg-4">
+    <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+      <h4>{{ welcomeMessage }}</h4>
+      <h6 class="font-weight-light">{{ singInMessage }}</h6>
+      <form class="pt-3" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div *ngIf="errorServerMessage" class="error-message text-danger">
+          {{ errorServerMessage }}
+        </div>
+        <div class="form-group">
+          <input 
+            type="email" 
+            class="form-control form-control-lg" 
+            placeholder="{{ emailPlaceholderName }}" 
+            formControlName="email" 
+            required>
+          <div *ngIf="loginForm.get('email')?.errors && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)" class="text-danger">
+            {{ getEmailErrorMessage() }}
+          </div>
+        </div>
+        <div class="form-group">
+          <input 
+            type="password" 
+            class="form-control form-control-lg" 
+            placeholder="{{ passwordPlaceholderName }}" 
+            formControlName="password" 
+            required>
+          <div *ngIf="loginForm.get('password')?.errors && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)" class="text-danger">
+            {{ getPasswordErrorMessage() }}
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">{{ loginButtonName }}</button>
+        </div>
+        <div class="text-center mt-4 font-weight-light">
+          {{ inviteToRegisterMessage }} <a class="text-primary" routerLink="/register">{{ linkRegisterComponentrName }}</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

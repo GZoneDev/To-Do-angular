@@ -1,0 +1,14 @@
+{
+    "/authApi": {
+      "target": "https://localhost:7040",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": { "^/authApi": "" }
+    },
+    "/taskApi": {
+      "target": "https://localhost:7254",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": { "^/taskApi": "" }
+    }
+}
